@@ -144,17 +144,15 @@ export default function ModelCard({ profile, onSelectProfile, index = 0 }) {
 
         {/* CTA Buttons */}
         <div className="grid grid-cols-2 gap-2">
-          <a
-            href={`https://wa.me/${profile.whatsapp?.replace(/[^0-9]/g, "")}?text=${encodeURIComponent(
-              `Hello ${profile.name}, I found your verified profile on Naughty Mulaqat (${profile.cityName}). Are you available?`
-            )}`}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center justify-center gap-1.5 px-3 py-2.5 rounded-xl bg-gradient-to-r from-emerald-600 to-teal-600 text-white font-bold text-xs shadow-md shadow-emerald-600/25 hover:opacity-95 active:scale-95 transition-all"
+          <button
+            type="button"
+            disabled
+            className="inline-flex items-center justify-center gap-1.5 px-3 py-2.5 rounded-xl bg-gray-100 text-gray-400 font-bold text-xs border border-gray-200 cursor-not-allowed opacity-60 shadow-none"
+            title="WhatsApp temporarily disabled"
           >
-            <MessageCircle className="w-3.5 h-3.5" />
+            <MessageCircle className="w-3.5 h-3.5 text-gray-400" />
             WhatsApp
-          </a>
+          </button>
 
           <button
             type="button"

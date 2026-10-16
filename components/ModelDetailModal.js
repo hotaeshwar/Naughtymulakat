@@ -197,17 +197,15 @@ export default function ModelDetailModal({ profile, onClose }) {
                     </span>
                   </div>
 
-                  <a
-                    href={`https://wa.me/${profile.whatsapp?.replace(/[^0-9]/g, "")}?text=${encodeURIComponent(
-                      `Hello ${profile.name}, I am contacting you via Naughty Mulaqat adult directory regarding a VIP booking in ${profile.cityName}.`
-                    )}`}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="w-full inline-flex items-center justify-center gap-2 py-3.5 rounded-2xl bg-gradient-to-r from-emerald-600 to-teal-600 text-white font-bold text-sm shadow-lg shadow-emerald-600/30 hover:opacity-95 transition-opacity"
+                  <button
+                    type="button"
+                    disabled
+                    className="w-full inline-flex items-center justify-center gap-2 py-3.5 rounded-2xl bg-gray-100 text-gray-400 font-bold text-sm border border-gray-200 cursor-not-allowed opacity-60 shadow-none"
+                    title="WhatsApp temporarily disabled"
                   >
-                    <MessageCircle className="w-4 h-4" />
-                    Book via WhatsApp
-                  </a>
+                    <MessageCircle className="w-4 h-4 text-gray-400" />
+                    WhatsApp (Disabled)
+                  </button>
                 </div>
               </div>
             </div>
