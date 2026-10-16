@@ -1,0 +1,116 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --bg-ivory: #FFFFFF;
+    --bg-cream: #FFFFFF;
+    --pastel-pink-soft: #FDE8EF;
+    --pastel-pink: #F4B8CD;
+    --pastel-pink-deep: #E887A9;
+    --pastel-lavender-soft: #F3EFFF;
+    --pastel-lavender: #DDD6FE;
+    --pastel-lavender-deep: #A78BFA;
+    --brand-dark: #221526;
+    --brand-muted: #915F6d;
+    --brand-gold: #D4AF37;
+    --card-border: rgba(232, 135, 169, 0.25);
+  }
+
+  body {
+    background: #FFFFFF;
+    color: var(--brand-dark);
+    font-family: var(--font-sans), 'Plus Jakarta Sans', var(--font-outfit), 'Outfit', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    min-height: 100vh;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  p {
+    color: #915F6d;
+    font-weight: 550;
+    line-height: 1.68;
+    letter-spacing: -0.01em;
+  }
+
+  h1, h2, h3, h4, .font-serif, .font-serif-luxury {
+    font-family: var(--font-sans), 'Plus Jakarta Sans', var(--font-outfit), 'Outfit', sans-serif;
+    letter-spacing: -0.02em;
+  }
+}
+
+/* Glassmorphism luxury styles */
+.glass-panel {
+  background: rgba(255, 255, 255, 0.78);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(244, 184, 205, 0.35);
+  box-shadow: 0 10px 30px -10px rgba(167, 139, 250, 0.12), 0 4px 12px rgba(232, 135, 169, 0.08);
+}
+
+.glass-card {
+  background: rgba(255, 255, 255, 0.88);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(232, 135, 169, 0.22);
+  box-shadow: 0 8px 24px -6px rgba(46, 30, 40, 0.06);
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.glass-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(232, 135, 169, 0.55);
+  box-shadow: 0 16px 36px -8px rgba(232, 135, 169, 0.22), 0 6px 16px rgba(167, 139, 250, 0.15);
+}
+
+/* Shimmer animations */
+@keyframes softGlow {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(244, 184, 205, 0.3), 0 0 40px rgba(221, 214, 254, 0.2);
+  }
+  50% {
+    box-shadow: 0 0 30px rgba(232, 135, 169, 0.45), 0 0 60px rgba(167, 139, 250, 0.3);
+  }
+}
+
+.luxury-glow {
+  animation: softGlow 4s ease-in-out infinite;
+}
+
+/* Pure CSS Card Entry Animations (Zero Hydration Mismatch) */
+@keyframes cardEnter {
+  0% {
+    opacity: 0;
+    transform: translateY(22px) scale(0.98);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.animate-card-enter {
+  animation: cardEnter 0.5s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.delay-0 { animation-delay: 0ms; }
+.delay-75 { animation-delay: 75ms; }
+.delay-150 { animation-delay: 150ms; }
+.delay-225 { animation-delay: 225ms; }
+.delay-300 { animation-delay: 300ms; }
+.delay-375 { animation-delay: 375ms; }
+
+/* Custom scrollbars */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #FAF7F5;
+}
+::-webkit-scrollbar-thumb {
+  background: #E887A9;
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #D8658E;
+}

@@ -1,0 +1,35 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // Public directory read access for cities, categories, ageRanges, locations, profiles
+    match /cities/{cityId} {
+      allow read: if true;
+      allow write: if request.auth != null; // or allow write: if true; during initial setup
+    }
+    
+    match /categories/{categoryId} {
+      allow read: if true;
+      allow write: if request.auth != null;
+    }
+    
+    match /ageRanges/{ageId} {
+      allow read: if true;
+      allow write: if request.auth != null;
+    }
+    
+    match /locations/{locationId} {
+      allow read: if true;
+      allow write: if request.auth != null;
+    }
+    
+    match /profiles/{profileId} {
+      allow read: if true;
+      allow write: if request.auth != null;
+    }
+    
+    // User registrations & authentication profiles
+    match /users/{userId} {
+      allow read, write: if true;
+    }
+  }
+}
