@@ -125,7 +125,7 @@ export default function CityClientView({ initialCity, cityInfo }) {
             return;
           }
           const clean = city.toLowerCase();
-          if (clean === "bangalore" || clean === "pune") {
+          if (clean === "bangalore" || clean === "pune" || clean === "goa") {
             toast.success(`Routing to /${clean}...`);
             router.push(`/${clean}`);
           }
@@ -141,6 +141,9 @@ export default function CityClientView({ initialCity, cityInfo }) {
           } else if (trimmed === "bangalore" && selectedCity !== "bangalore") {
             toast.success("Routing to /bangalore...");
             router.push("/bangalore");
+          } else if (trimmed === "goa" && selectedCity !== "goa") {
+            toast.success("Routing to /goa...");
+            router.push("/goa");
           }
         }}
         onReset={handleResetFilters}

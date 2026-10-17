@@ -49,7 +49,7 @@ export default function HomePage() {
   useEffect(() => {
     const welcomed = sessionStorage.getItem("nm_welcomed");
     if (!welcomed) {
-      toast.info("Welcome to Naughty Mulaqat. Bangalore & Pune verified 18+ directory.");
+      toast.info("Welcome to Naughty Mulaqat. Bangalore, Pune & Goa verified 18+ directory.");
       sessionStorage.setItem("nm_welcomed", "true");
     }
   }, [toast]);
@@ -116,8 +116,9 @@ export default function HomePage() {
       return;
     }
     const cleanCity = city.toLowerCase();
-    if (cleanCity === "bangalore" || cleanCity === "pune") {
-      toast.success(`Opening ${cleanCity === "bangalore" ? "Bangalore" : "Pune"} directory...`);
+    if (cleanCity === "bangalore" || cleanCity === "pune" || cleanCity === "goa") {
+      const displayCity = cleanCity === "bangalore" ? "Bangalore" : cleanCity === "pune" ? "Pune" : "Goa";
+      toast.success(`Opening ${displayCity} directory...`);
       router.push(`/${cleanCity}`);
     } else {
       setSelectedCity(city);
@@ -133,6 +134,9 @@ export default function HomePage() {
     } else if (trimmed === "bangalore") {
       toast.success("Routing to /bangalore...");
       router.push("/bangalore");
+    } else if (trimmed === "goa") {
+      toast.success("Routing to /goa...");
+      router.push("/goa");
     }
   };
 
@@ -184,12 +188,20 @@ export default function HomePage() {
                 </span>
               </div>
               <h2 className="font-serif text-2xl sm:text-3xl font-bold text-[#221526] mt-1">
-                {selectedCity === "bangalore" ? "Bangalore Escorts & Models" : "Pune VIP Companions"}
+                {selectedCity === "bangalore"
+                  ? "Bangalore Escorts & Models"
+                  : selectedCity === "pune"
+                  ? "Pune VIP Companions"
+                  : "Goa VIP Companions & Escorts"}
               </h2>
               <p className="text-xs sm:text-sm text-[#915F6d] font-semibold">
                 Showing {displayedProfiles.length} active models in{" "}
                 <span className="font-bold text-[#221526]">
-                  {selectedCity === "bangalore" ? "Bangalore" : "Pune"}
+                  {selectedCity === "bangalore"
+                    ? "Bangalore"
+                    : selectedCity === "pune"
+                    ? "Pune"
+                    : "Goa"}
                 </span>
               </p>
             </div>

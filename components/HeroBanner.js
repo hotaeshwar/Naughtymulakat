@@ -38,13 +38,21 @@ export default function HeroBanner({ selectedCity, onSelectCity }) {
                 highlights={[{ word: "VIP Escorts", className: "text-[#8B5CF6]" }]}
                 cursorColor="text-[#8B5CF6]"
               />
+            ) : selectedCity === "goa" ? (
+              <TypewriterText
+                key="goa"
+                text="Goa VIP Escorts & Beachside Luxury Companions"
+                highlights={[{ word: "VIP Escorts", className: "text-[#059669]" }]}
+                cursorColor="text-[#059669]"
+              />
             ) : (
               <TypewriterText
                 key="default"
-                text="Luxury Adult Companionship in Bangalore & Pune"
+                text="Luxury Adult Companionship in Bangalore, Pune & Goa"
                 highlights={[
                   { word: "Bangalore", className: "text-[#D8658E]" },
                   { word: "Pune", className: "text-[#8B5CF6]" },
+                  { word: "Goa", className: "text-[#059669]" },
                 ]}
                 cursorColor="text-[#D8658E]"
               />

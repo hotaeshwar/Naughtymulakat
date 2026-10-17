@@ -3,7 +3,7 @@ import CityClientView from "../city/[slug]/CityClientView";
 import { citiesData } from "../../data/seedData";
 
 export async function generateStaticParams() {
-  return [{ city: "bangalore" }, { city: "pune" }];
+  return [{ city: "bangalore" }, { city: "pune" }, { city: "goa" }];
 }
 
 export async function generateMetadata({ params }) {
@@ -38,7 +38,7 @@ export default async function TopLevelCityPage({ params }) {
   const { city: cityParam } = await params;
   const slug = cityParam?.toLowerCase();
 
-  if (slug !== "bangalore" && slug !== "pune") {
+  if (slug !== "bangalore" && slug !== "pune" && slug !== "goa") {
     notFound();
   }
 

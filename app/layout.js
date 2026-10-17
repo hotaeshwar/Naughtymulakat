@@ -30,7 +30,7 @@ export const metadata = {
   metadataBase: new URL("https://naughtymulaqat.com"),
   title: "Naughty Mulaqat | Premium 18+ Adult Companion & Model Directory",
   description:
-    "Exclusive, verified high-class independent models and VIP companions in Bangalore and Pune. Discreet, sensual, and unforgettable experiences.",
+    "Exclusive, verified high-class independent models and VIP companions in Bangalore, Pune, and Goa. Discreet, sensual, and unforgettable experiences.",
   icons: {
     icon: [
       { url: "/images/naughty-mulakat-infinity-logo.png", type: "image/png" },
@@ -42,8 +42,10 @@ export const metadata = {
   keywords: [
     "Bangalore escorts",
     "Pune escorts",
+    "Goa escorts",
     "VIP companions Bangalore",
     "Independent models Pune",
+    "VIP companions Goa",
     "Adult directory India",
     "Naughty Mulaqat",
   ],
@@ -110,7 +112,7 @@ export default function RootLayout({ children }) {
                 </div>
                 <p className="text-sm text-[#915F6d] font-semibold leading-relaxed max-w-sm">
                   The premier destination for elite adult companionship and independent creator
-                  introductions across Bangalore &amp; Pune. Unmatched luxury, discretion, and authenticity.
+                  introductions across Bangalore, Pune &amp; Goa. Unmatched luxury, discretion, and authenticity.
                 </p>
                 <div className="mt-4 inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#FDE8EF] border border-[#F4B8CD] text-[#D8658E] text-xs font-bold shadow-xs">
                   <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
@@ -126,15 +128,21 @@ export default function RootLayout({ children }) {
                 </h4>
                 <ul className="space-y-3 text-sm text-[#915F6d]">
                   <li className="p-3 rounded-2xl bg-white/90 border border-[#F4B8CD]/50 shadow-xs">
-                    <span className="text-[#D8658E] font-bold block mb-1">Bangalore:</span>
+                    <span className="text-[#D8658E] font-bold block mb-1">Bangalore (Karnataka):</span>
                     <span className="text-xs text-[#915F6d] font-semibold">
                       Indiranagar, Koramangala, Whitefield, MG Road, HSR Layout, JP Nagar
                     </span>
                   </li>
                   <li className="p-3 rounded-2xl bg-white/90 border border-[#DDD6FE]/70 shadow-xs">
-                    <span className="text-[#8B5CF6] font-bold block mb-1">Pune:</span>
+                    <span className="text-[#8B5CF6] font-bold block mb-1">Pune (Maharashtra):</span>
                     <span className="text-xs text-[#915F6d] font-semibold">
                       Koregaon Park, Kalyani Nagar, Baner, Viman Nagar, Hinjewadi, Wakad
+                    </span>
+                  </li>
+                  <li className="p-3 rounded-2xl bg-white/90 border border-[#A7F3D0]/70 shadow-xs">
+                    <span className="text-[#059669] font-bold block mb-1">Goa (Goa):</span>
+                    <span className="text-xs text-[#915F6d] font-semibold">
+                      Calangute, Candolim, Baga, Panaji, Anjuna, Vagator, Colva
                     </span>
                   </li>
                 </ul>

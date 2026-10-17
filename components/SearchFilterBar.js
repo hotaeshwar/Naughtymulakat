@@ -51,7 +51,13 @@ export default function SearchFilterBar({
               <div className="text-xs sm:text-sm text-[#915F6d] font-semibold mt-1">
                 Showing profiles in{" "}
                 <strong className="text-[#D8658E]">
-                  {selectedCity === "bangalore" ? "Bangalore" : "Pune"}
+                  {selectedCity === "bangalore"
+                    ? "Bangalore"
+                    : selectedCity === "pune"
+                    ? "Pune"
+                    : selectedCity === "goa"
+                    ? "Goa"
+                    : selectedCity}
                 </strong>{" "}
                 ({totalResults} verified matches found)
               </div>
@@ -98,7 +104,7 @@ export default function SearchFilterBar({
                   : "bg-white border-[#E887A9] text-[#221526] font-semibold focus:ring-[#E887A9]/30 focus:border-[#E887A9] shadow-xs"
               }`}
             >
-              <option value="">-- Choose City (Bangalore / Pune) --</option>
+              <option value="">-- Choose City (Bangalore / Pune / Goa) --</option>
               {cities && cities.length > 0 ? (
                 cities.map((c) => (
                   <option key={c.id || c.slug} value={c.slug || c.id}>
@@ -109,6 +115,7 @@ export default function SearchFilterBar({
                 <>
                   <option value="bangalore">Bangalore (Karnataka)</option>
                   <option value="pune">Pune (Maharashtra)</option>
+                  <option value="goa">Goa (Goa)</option>
                 </>
               )}
             </select>
@@ -208,7 +215,9 @@ export default function SearchFilterBar({
                   ? "e.g. Indiranagar, Aaradhya, VIP..."
                   : selectedCity === "pune"
                   ? "e.g. Koregaon Park, Baner..."
-                  : "Type 'Bangalore' or 'Pune' to explore..."
+                  : selectedCity === "goa"
+                  ? "e.g. Calangute, Candolim, Panaji..."
+                  : "Type 'Bangalore', 'Pune', or 'Goa' to explore..."
               }
               className="w-full pl-11 pr-4 py-3 rounded-2xl border border-[#DDD6FE] bg-white text-sm text-[#221526] font-medium placeholder-[#915F6d]/50 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-[#8B5CF6]/30 focus:border-[#8B5CF6] hover:border-[#A78BFA] shadow-xs disabled:opacity-40 disabled:cursor-not-allowed"
             />
