@@ -119,10 +119,14 @@ export default function ModelCard({ profile, onSelectProfile, index = 0 }) {
 
       {/* FOOTER ACTIONS: Direct Contact & Action Buttons */}
       <div className="pt-4 mt-4 border-t border-[#F4B8CD]/40 space-y-2.5">
-        {/* Masked Direct Contact Number */}
-        <div className="flex items-center justify-between p-2.5 rounded-2xl bg-[#FAF7F5] border border-[#F4B8CD]/50 shadow-inner">
+        {/* Direct Contact Number / Click to Call */}
+        <a
+          href={`tel:${(profile.phone || "").replace(/[^0-9+]/g, "")}`}
+          className="flex items-center justify-between p-2.5 rounded-2xl bg-[#FAF7F5] hover:bg-[#FDE8EF]/60 border border-[#F4B8CD]/50 shadow-inner transition-colors group/call cursor-pointer"
+          title="Click to Call"
+        >
           <div className="flex items-center gap-2">
-            <div className="w-7 h-7 rounded-xl bg-[#FDE8EF] flex items-center justify-center text-[#D8658E] shadow-xs">
+            <div className="w-7 h-7 rounded-xl bg-[#FDE8EF] group-hover/call:bg-[#E887A9] group-hover/call:text-white flex items-center justify-center text-[#D8658E] shadow-xs transition-colors">
               <Phone className="w-3.5 h-3.5" />
             </div>
             <div>
@@ -130,29 +134,30 @@ export default function ModelCard({ profile, onSelectProfile, index = 0 }) {
                 Direct Contact
               </div>
               <div className="text-xs font-mono font-bold text-[#221526]">
-                <span className="text-[#915F6d] tracking-widest font-semibold">
-                  {getMaskedNumber(profile.phone)}
+                <span className="text-[#221526] font-bold tracking-wide">
+                  {profile.phone}
                 </span>
               </div>
             </div>
           </div>
 
-          <span className="px-2.5 py-1 rounded-xl text-[11px] font-bold bg-[#FDE8EF] text-[#D8658E] border border-[#F4B8CD]/50">
-            Protected
+          <span className="px-2.5 py-1 rounded-xl text-[11px] font-bold bg-[#FDE8EF] group-hover/call:bg-[#E887A9] text-[#D8658E] group-hover/call:text-white border border-[#F4B8CD]/50 transition-colors shadow-xs">
+            Call
           </span>
-        </div>
+        </a>
 
         {/* CTA Buttons */}
         <div className="grid grid-cols-2 gap-2">
-          <button
-            type="button"
-            disabled
-            className="inline-flex items-center justify-center gap-1.5 px-3 py-2.5 rounded-xl bg-gray-100 text-gray-400 font-bold text-xs border border-gray-200 cursor-not-allowed opacity-60 shadow-none"
-            title="WhatsApp temporarily disabled"
+          <a
+            href={`https://wa.me/${(profile.whatsapp || profile.phone || "").replace(/[^0-9]/g, "")}?text=${encodeURIComponent(`Hi, I saw ${profile.name} on Naughty Mulaqat`)}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center justify-center gap-1.5 px-3 py-2.5 rounded-xl bg-gradient-to-r from-emerald-500 to-green-600 hover:from-emerald-600 hover:to-green-700 text-white font-bold text-xs shadow-sm hover:shadow-md hover:shadow-emerald-500/20 active:scale-95 transition-all cursor-pointer"
+            title="Chat on WhatsApp"
           >
-            <MessageCircle className="w-3.5 h-3.5 text-gray-400" />
+            <MessageCircle className="w-3.5 h-3.5 text-white" />
             WhatsApp
-          </button>
+          </a>
 
           <button
             type="button"

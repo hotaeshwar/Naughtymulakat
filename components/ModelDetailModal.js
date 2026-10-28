@@ -173,39 +173,43 @@ export default function ModelDetailModal({ profile, onClose }) {
                   </div>
                 </div>
 
-                {/* Booking & Call Actions with Blurred Number by Default */}
+                {/* Booking & Call Actions */}
                 <div className="pt-4 border-t border-[#F4B8CD]/30 space-y-3">
-                  <div className="flex items-center justify-between p-3 rounded-2xl bg-[#FAF7F5] border border-[#DDD6FE]">
-                    <div className="flex items-center gap-2.5">
-                      <div className="w-8 h-8 rounded-xl bg-[#FDE8EF] flex items-center justify-center text-[#D8658E]">
-                        <Phone className="w-4 h-4" />
+                  <a
+                    href={`tel:${(profile.phone || "").replace(/[^0-9+]/g, "")}`}
+                    className="flex items-center justify-between p-3.5 rounded-2xl bg-[#FAF7F5] hover:bg-[#FDE8EF]/60 border border-[#DDD6FE] hover:border-[#E887A9] transition-all group/call cursor-pointer shadow-xs"
+                    title="Click to Call"
+                  >
+                    <div className="flex items-center gap-3">
+                      <div className="w-10 h-10 rounded-xl bg-[#FDE8EF] group-hover/call:bg-[#E887A9] group-hover/call:text-white flex items-center justify-center text-[#D8658E] shadow-xs transition-colors">
+                        <Phone className="w-5 h-5" />
                       </div>
                       <div>
-                        <div className="text-[10px] text-[#915F6d] font-bold uppercase tracking-wider">
-                          Direct Contact
+                        <div className="text-[11px] text-[#915F6d] font-bold uppercase tracking-wider">
+                          Direct Contact / Call
                         </div>
-                        <div className="text-sm font-mono font-bold text-[#221526]">
-                          <span className="text-[#915F6d] tracking-widest font-semibold">
-                            {getMaskedNumber(profile.phone)}
+                        <div className="text-base font-mono font-bold text-[#221526]">
+                          <span className="text-[#221526] tracking-wider font-extrabold">
+                            {profile.phone}
                           </span>
                         </div>
                       </div>
                     </div>
 
-                    <span className="px-3 py-1 rounded-xl text-xs font-bold bg-[#FDE8EF] text-[#D8658E] border border-[#F4B8CD]/50">
-                      Protected
+                    <span className="px-3.5 py-1.5 rounded-xl text-xs font-bold bg-[#E887A9] text-white shadow-xs group-hover/call:scale-105 transition-transform">
+                      Call Now
                     </span>
-                  </div>
+                  </a>
 
-                  <button
-                    type="button"
-                    disabled
-                    className="w-full inline-flex items-center justify-center gap-2 py-3.5 rounded-2xl bg-gray-100 text-gray-400 font-bold text-sm border border-gray-200 cursor-not-allowed opacity-60 shadow-none"
-                    title="WhatsApp temporarily disabled"
+                  <a
+                    href={`https://wa.me/${(profile.whatsapp || profile.phone || "").replace(/[^0-9]/g, "")}?text=${encodeURIComponent(`Hi, I saw ${profile.name} on Naughty Mulaqat`)}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-full inline-flex items-center justify-center gap-2 py-3.5 rounded-2xl bg-gradient-to-r from-emerald-500 to-green-600 hover:from-emerald-600 hover:to-green-700 text-white font-bold text-sm shadow-md shadow-emerald-500/25 active:scale-[0.99] transition-all cursor-pointer"
                   >
-                    <MessageCircle className="w-4 h-4 text-gray-400" />
-                    WhatsApp (Disabled)
-                  </button>
+                    <MessageCircle className="w-5 h-5 text-white" />
+                    Chat on WhatsApp
+                  </a>
                 </div>
               </div>
             </div>

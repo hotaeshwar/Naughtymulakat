@@ -3,12 +3,11 @@
 import { useState, useEffect } from "react";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
-import { ShieldAlert, CheckCircle2, XCircle, UserCheck } from "lucide-react";
+import { ShieldAlert, CheckCircle2, XCircle } from "lucide-react";
 
 export default function AgeVerificationModal({
   isOpen: controlledIsOpen,
   onConfirm: controlledOnConfirm,
-  user = null,
 }) {
   const [internalIsOpen, setInternalIsOpen] = useState(false);
   const [isMounted, setIsMounted] = useState(false);
@@ -74,14 +73,6 @@ export default function AgeVerificationModal({
                 className="h-16 sm:h-20 w-auto object-contain"
               />
             </div>
-
-            {/* User status badge if authenticated */}
-            {(user?.username || user?.name) && (
-              <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-50 border border-emerald-200 text-emerald-700 text-xs font-bold mb-3">
-                <UserCheck className="w-3.5 h-3.5" />
-                Verified User: {user.username || user.name}
-              </div>
-            )}
 
             {/* 18+ Warning Badge */}
             <div className="flex justify-center mb-3">

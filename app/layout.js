@@ -3,7 +3,6 @@ import Image from "next/image";
 import Link from "next/link";
 import "./globals.css";
 import GatekeeperAuthFlow from "../components/GatekeeperAuthFlow";
-import HeaderUserBadge from "../components/HeaderUserBadge";
 import { ToastProvider } from "../components/ToastContext";
 
 const plusJakartaSans = Plus_Jakarta_Sans({
@@ -27,7 +26,7 @@ export const viewport = {
 };
 
 export const metadata = {
-  metadataBase: new URL("https://naughtymulaqat.com"),
+  metadataBase: new URL("https://naughtymulakat.com"),
   title: "Naughty Mulaqat | Premium 18+ Adult Companion & Model Directory",
   description:
     "Exclusive, verified high-class independent models and VIP companions in Bangalore, Pune, and Goa. Discreet, sensual, and unforgettable experiences.",
@@ -87,7 +86,10 @@ export default function RootLayout({ children }) {
               />
             </Link>
 
-            <HeaderUserBadge />
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#FDE8EF]/80 backdrop-blur-md border border-[#F4B8CD] text-[#D8658E] text-xs font-bold shadow-xs">
+              <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+              Verified 18+ VIP Directory
+            </div>
           </div>
         </header>
 
@@ -169,7 +171,7 @@ export default function RootLayout({ children }) {
             <div className="pt-8 flex flex-col sm:flex-row items-center justify-between text-xs font-bold text-[#915F6d] gap-4">
               <p className="font-semibold">© 2026 Naughty Mulaqat. All rights reserved. Strictly 18+ Adults Only.</p>
               <div className="flex items-center gap-6">
-                <span className="hover:text-[#D8658E] transition-colors">Bangalore &amp; Pune Exclusive</span>
+                <span className="hover:text-[#D8658E] transition-colors">Bangalore, Pune &amp; Goa Exclusive</span>
                 <span className="w-1 h-1 rounded-full bg-[#D8658E]"></span>
                 <span className="hover:text-[#8B5CF6] transition-colors">Discreet &amp; Verified</span>
               </div>
